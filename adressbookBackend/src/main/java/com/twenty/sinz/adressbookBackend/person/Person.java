@@ -2,6 +2,7 @@ package com.twenty.sinz.adressbookBackend.person;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.Period;
 
 @Entity
 @Table
@@ -20,6 +21,7 @@ public class Person {
     private String firstName;
     private String lastName;
     private LocalDate dateOfBirth;
+    @Transient
     private Integer age;
 
     public Person() {
@@ -28,23 +30,19 @@ public class Person {
     public Person(Long id,
                   String firstName,
                   String lastName,
-                  LocalDate dateOfBirth,
-                  Integer age) {
+                  LocalDate dateOfBirth) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
-        this.age = age;
     }
 
     public Person(String firstName,
                   String lastName,
-                  LocalDate dateOfBirth,
-                  Integer age) {
+                  LocalDate dateOfBirth) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
-        this.age = age;
     }
 
     public Long getId() {
@@ -80,7 +78,7 @@ public class Person {
     }
 
     public Integer getAge() {
-        return age;
+        return Period.between(this.dateOfBirth, LocalDate.now()).getYears();
     }
 
     public void setAge(Integer age) {
