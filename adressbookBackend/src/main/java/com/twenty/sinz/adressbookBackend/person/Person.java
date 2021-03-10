@@ -21,6 +21,15 @@ public class Person {
     private String firstName;
     private String lastName;
     private LocalDate dateOfBirth;
+    private String phonePrivate;
+    private String phoneBusiness;
+    private String email;
+    private String street;
+    private Integer houseNumber;
+    private Integer postCode;
+    private String city;
+    private String country;
+    private String avatarURL;
     @Transient
     private Integer age;
 
@@ -30,19 +39,55 @@ public class Person {
     public Person(Long id,
                   String firstName,
                   String lastName,
-                  LocalDate dateOfBirth) {
+                  LocalDate dateOfBirth,
+                  String phonePrivate,
+                  String phoneBusiness,
+                  String email,
+                  String street,
+                  Integer houseNumber,
+                  Integer postCode,
+                  String city,
+                  String country,
+                  String avatarURL) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
+        this.phonePrivate = phonePrivate;
+        this.phoneBusiness = phoneBusiness;
+        this.email = email;
+        this.street = street;
+        this.houseNumber = houseNumber;
+        this.postCode = postCode;
+        this.city = city;
+        this.country = country;
+        this.avatarURL = avatarURL;
     }
 
     public Person(String firstName,
                   String lastName,
-                  LocalDate dateOfBirth) {
+                  LocalDate dateOfBirth,
+                  String phonePrivate,
+                  String phoneBusiness,
+                  String email,
+                  String street,
+                  Integer houseNumber,
+                  Integer postCode,
+                  String city,
+                  String country,
+                  String avatarURL) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
+        this.phonePrivate = phonePrivate;
+        this.phoneBusiness = phoneBusiness;
+        this.email = email;
+        this.street = street;
+        this.houseNumber = houseNumber;
+        this.postCode = postCode;
+        this.city = city;
+        this.country = country;
+        this.avatarURL = avatarURL;
     }
 
     public Long getId() {
@@ -85,6 +130,78 @@ public class Person {
         this.age = age;
     }
 
+    public String getPhonePrivate() {
+        return phonePrivate;
+    }
+
+    public void setPhonePrivate(String phonePrivate) {
+        this.phonePrivate = phonePrivate;
+    }
+
+    public String getPhoneBusiness() {
+        return phoneBusiness;
+    }
+
+    public void setPhoneBusiness(String phoneBusiness) {
+        this.phoneBusiness = phoneBusiness;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public Integer getHouseNumber() {
+        return houseNumber;
+    }
+
+    public void setHouseNumber(Integer houseNumber) {
+        this.houseNumber = houseNumber;
+    }
+
+    public Integer getPostCode() {
+        return postCode;
+    }
+
+    public void setPostCode(Integer postCode) {
+        this.postCode = postCode;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getAvatarURL() {
+        return avatarURL;
+    }
+
+    public void setAvatarURL(String avatarURL) {
+        this.avatarURL = avatarURL;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
@@ -92,6 +209,15 @@ public class Person {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
+                ", phonePrivate='" + phonePrivate + '\'' +
+                ", phoneBusiness='" + phoneBusiness + '\'' +
+                ", email='" + email + '\'' +
+                ", street='" + street + '\'' +
+                ", houseNumber=" + houseNumber +
+                ", postCode=" + postCode +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                ", avatarURL='" + avatarURL + '\'' +
                 ", age=" + age +
                 '}';
     }
