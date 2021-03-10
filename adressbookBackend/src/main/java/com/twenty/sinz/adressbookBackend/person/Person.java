@@ -4,9 +4,10 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.Period;
 
-@Entity
-@Table
+@Entity(name = "Person")
+@Table(name = "person")
 public class Person {
+
     @Id
     @SequenceGenerator(
             name = "person_sequence",
@@ -17,19 +18,92 @@ public class Person {
             strategy = GenerationType.SEQUENCE,
             generator = "person_sequence"
     )
+    @Column(
+            name = "id",
+            updatable = false
+    )
     private Long id;
+
+    @Column(
+            name= "first_name",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String firstName;
+
+    @Column(
+            name= "last_name",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String lastName;
+
+    @Column(
+            name= "date_of_birth",
+            nullable = false
+    )
     private LocalDate dateOfBirth;
+
+    @Column(
+            name= "phone_private",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String phonePrivate;
+
+    @Column(
+            name= "phone_business",
+            columnDefinition = "TEXT"
+    )
     private String phoneBusiness;
+
+    @Column(
+            name= "email",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String email;
+
+    @Column(
+            name= "street",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String street;
+
+    @Column(
+            name= "house_number",
+            nullable = false
+    )
     private Integer houseNumber;
+
+    @Column(
+            name= "post_code",
+            nullable = false
+    )
     private Integer postCode;
+
+    @Column(
+            name= "city",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String city;
+
+    @Column(
+            name= "country",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String country;
+
+    @Column(
+            name= "avatar_url",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String avatarURL;
+
     @Transient
     private Integer age;
 
