@@ -8,4 +8,5 @@ import java.util.List;
 public interface PersonService {
     public List<Person> getPersons();
     public void addNewPerson(Person person);
+    public void deletePerson(Long personId);
 }

@@ -7,12 +7,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PersonServiveImpl implements PersonService {
+public class PersonServiceImpl implements PersonService {
 
     private final PersonRepository personRepository;
 
     @Autowired
-    public PersonServiveImpl(PersonRepository personRepository) {
+    public PersonServiceImpl(PersonRepository personRepository) {
         this.personRepository = personRepository;
     }
 
@@ -24,5 +24,16 @@ public class PersonServiveImpl implements PersonService {
     @Override
     public void addNewPerson(Person person) {
         personRepository.save(person);
+    }
+
+    @Override
+    public void deletePerson(Long personId){
+        boolean exists = personRepository.existsById(personId);
+        if (!exists) {
+            throw new IllegalStateException(
+                    "person with id " + personId + " does not exist"
+            );
+        }
+        personRepository.deleteById(personId);
     }
 }

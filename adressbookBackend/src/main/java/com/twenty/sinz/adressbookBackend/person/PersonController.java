@@ -25,4 +25,9 @@ public class PersonController {
     public void addNewPerson(@RequestBody Person person) {
         personService.addNewPerson(person);
     }
+
+    @DeleteMapping(path = "{personId}")
+    public void deletePerson(@PathVariable("personId") Long personId) {
+        personService.deletePerson(personId);
+    }
 }
