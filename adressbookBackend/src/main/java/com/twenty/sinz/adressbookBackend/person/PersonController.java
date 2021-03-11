@@ -1,6 +1,8 @@
 package com.twenty.sinz.adressbookBackend.person;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,17 +19,26 @@ public class PersonController {
     }
 
     @GetMapping
-    public List<Person> getPersons() {
-        return personService.getPersons();
+    public ResponseEntity<List<Person>> getPersons() {
+        List<Person> persons = personService.getPersons();
+        return new ResponseEntity<>(persons, HttpStatus.OK);
     }
 
-    @PostMapping
-    public void addNewPerson(@RequestBody Person person) {
-        personService.addNewPerson(person);
+    @PostMapping(path = "/add")
+    public ResponseEntity<Person> addNewPerson(@RequestBody Person person) {
+        Person newPerson = personService.addNewPerson(person);
+        return new ResponseEntity<>(newPerson, HttpStatus.OK);
     }
 
-    @DeleteMapping(path = "{personId}")
-    public void deletePerson(@PathVariable("personId") Long personId) {
+    @DeleteMapping(path = "/delete/{personId}")
+    public ResponseEntity<?> deletePerson(@PathVariable("personId") Long personId) {
         personService.deletePerson(personId);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PutMapping(path = "/update/{personId}")
+    public ResponseEntity<Person> updatePerson(@PathVariable("personId") Long personId, @RequestBody Person person) {
+        Person personUpdated = personService.updatePerson(personId, person);
+        return new ResponseEntity<>(personUpdated, HttpStatus.OK);
     }
 }
