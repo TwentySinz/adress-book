@@ -1,0 +1,58 @@
+$background-color: #65c9ff;
+
+.adress-book-card{
+    width: 300px;
+    margin: 2rem;
+
+    .adress-book-card-header{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        
+
+        .adress-book-card-header-image{
+            display: flex;
+            background: $background-color;
+            width: 60px;
+            height: 60px;
+            padding: 0;
+            img{
+                align-self: center;
+                justify-self: center;
+                width: 60px;
+                height: auto;
+            }
+        }
+    }
+
+    .adress-book-card-content{
+        padding: 1rem;
+
+        div{
+            margin-bottom: 0.5rem;
+
+            h2{
+                margin: 0;
+                padding: 0;
+            }
+
+            p{
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+
+    .adress-book-card-actions{
+        padding-left: 1rem;
+
+        button{
+            background: #efefef;
+        }
+
+        button:hover{
+            background: $background-color;
+        }
+    }
+}

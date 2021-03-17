@@ -1,3 +1,5 @@
-<div *ngFor="let person of persons">
-    <app-adress-book-card [person] ="person"></app-adress-book-card>
+<div class="adress-book">
+    <div *ngFor="let person of persons">
+        <app-adress-book-card [person] ="person" class="adress-book-item"></app-adress-book-card>
+    </div>
 </div>

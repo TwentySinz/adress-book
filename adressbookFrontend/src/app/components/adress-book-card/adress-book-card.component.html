@@ -1,3 +1,30 @@
+<mat-card class="adress-book-card">
+    <mat-card-header class="adress-book-card-header">
+        <div matCardAvatar class="adress-book-card-header-image"><img src="assets/images/{{person.avatarURL}}" /></div>
+        <mat-card-title>{{person.firstName}} {{person.lastName}}</mat-card-title>
+        <mat-card-subtitle>Age: {{person.age}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="adress-book-card-content">
+        <div>
+            <h2>Adress:</h2>
+            <p>{{person.street}} {{person.houseNumber}}</p>
+            <p>{{person.postCode}} {{person.city}}</p>
+            <p>{{person.country}}</p>
+        </div>
+        <div>
+            <h2>Contact:</h2>
+            <p>Phone: {{person.phonePrivate}}</p>
+            <p>Phone Business: {{person.phoneBusiness? person.phoneBusiness : ''}}</p>
+            <p>E-Mail: {{person.email}}</p>
+        </div>
+    </mat-card-content>
+    <mat-card-actions class="adress-book-card-actions">
+        <button mat-button>Edit</button>
+        <button mat-button>Delete</button>
+    </mat-card-actions>
+</mat-card>
+
+<!--
 <div>
     <p>{{person.firstName}}</p>
     <p>{{person.lastName}}</p>
@@ -12,3 +39,4 @@
     <p>{{person.country}}</p>
     <p>{{person.age}}</p>
 </div>
+-->

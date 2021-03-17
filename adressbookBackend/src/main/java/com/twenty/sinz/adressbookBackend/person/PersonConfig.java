@@ -27,7 +27,7 @@ public class PersonConfig {
                     10123,
                     "Berlin",
                     "Germany",
-                    ""
+                    "male.png"
             );
             Person mario = new Person(
                     2L,
@@ -42,10 +42,25 @@ public class PersonConfig {
                     92418,
                     "Nürnberg",
                     "Germany",
-                    ""
+                    "male.png"
+            );
+            Person horstine = new Person(
+                    3L,
+                    "Horstine",
+                    "Worstine",
+                    LocalDate.of(1991, Month.JANUARY, 5),
+                    "01234567",
+                    "012345",
+                    "horstine@adressbook.com",
+                    "Worst Allee",
+                    21,
+                    92418,
+                    "Nürnberg",
+                    "Germany",
+                    "female.png"
             );
 
-            repository.saveAll(List.of(horst, mario));
+            repository.saveAll(List.of(horst, mario, horstine));
         };
     }
 }
