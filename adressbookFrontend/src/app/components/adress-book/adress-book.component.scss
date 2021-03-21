@@ -1,5 +1,11 @@
+@import "../../../assets/styles/mixins.scss";
+
 .adress-book{
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+
+    @include medium {
+        justify-content: center;
+    }
 }
