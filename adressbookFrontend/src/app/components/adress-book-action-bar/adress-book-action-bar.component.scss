@@ -1,0 +1,52 @@
+@import "../../../assets/styles/mixins.scss";
+
+$background-color: #65c9ff;
+
+.action-bar {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 1200px;
+    padding-right: 2rem;
+
+    @include large {
+        width: 500px;
+    }
+
+    @include medium {
+        width: 100%;
+    }
+
+    @include between {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(2, minmax(4rem, auto));
+    }
+
+    .action-bar-add {
+        display: inline-flex;
+        align-self: center;
+
+        span {
+            align-self: center;
+            font-size: 1.1rem;
+            margin-right: 0.5rem;
+        }
+
+        button {
+            align-self: center;
+        }
+
+        button:hover {
+            background: $background-color;
+        }
+    }
+
+    ::ng-deep .mat-form-field-wrapper{
+        margin-bottom: -1.25em;
+     }
+
+    .action-bar-search {
+        display: inline-flex;
+        align-self: center;
+    }
+}

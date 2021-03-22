@@ -1,6 +1,15 @@
+@import "../../../../assets/styles/mixins.scss";
+
 .adress-book-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 1rem 2rem 1rem 2rem; 
     border-bottom: 1px solid;
+
+    @include medium {
+        display: block;
+    }
 
     h1{
         padding: 0;
