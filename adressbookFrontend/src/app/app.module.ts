@@ -11,6 +11,7 @@ import { AdressBookCardComponent } from './components/adress-book-card/adress-bo
 import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { AdressBookActionBarComponent } from './components/adress-book-action-bar/adress-book-action-bar.component';
+import { AdressBookFormComponent } from './components/adress-book-form/adress-book-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AdressBookActionBarComponent } from './components/adress-book-action-ba
     AdressBookCardComponent,
     HeaderComponent,
     FooterComponent,
-    AdressBookActionBarComponent
+    AdressBookActionBarComponent,
+    AdressBookFormComponent
   ],
   imports: [
     BrowserModule,
