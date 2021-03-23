@@ -1,0 +1,29 @@
+$background-color: #65c9ff;
+
+.adress-book-form {
+
+    h2 {
+        margin: 0;
+    }
+    
+    mat-form-field {
+        margin-right: 2rem;
+    }
+
+    button {
+        background: #efefef;
+    }
+
+    button:hover {
+        background: $background-color;
+    }
+
+    .form-person {
+        margin-bottom: 2rem;
+        
+    }
+
+    .form-adress {
+        margin-bottom: 2rem;
+    }
+}
