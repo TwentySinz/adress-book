@@ -12,6 +12,7 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { AdressBookActionBarComponent } from './components/adress-book-action-bar/adress-book-action-bar.component';
 import { AdressBookFormComponent } from './components/adress-book-form/adress-book-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AdressBookFormComponent } from './components/adress-book-form/adress-bo
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
