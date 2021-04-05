@@ -1,5 +1,8 @@
 <div class="adress-book">
     <div *ngFor="let person of persons">
-        <app-adress-book-card [person] ="person" class="adress-book-item"></app-adress-book-card>
+        <app-adress-book-card [person] ="person" 
+                              (isFetchDataFromApi)="onUpdateCardList($event)" 
+                              class="adress-book-item">
+        </app-adress-book-card>
     </div>
 </div>

@@ -1,7 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
-import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AdressBookService } from '../../services/adress-book.service';
 import { Person } from 'src/app/models/Person';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-adress-book-form',
@@ -11,6 +13,8 @@ import { Person } from 'src/app/models/Person';
 export class AdressBookFormComponent implements OnInit {
   rFormPerson: FormGroup;
   newPerson: Person;
+  isEdit: boolean;
+  currentPersonId: number;
 
   formValidationMsgs = {
     firstName: [
@@ -66,7 +70,7 @@ export class AdressBookFormComponent implements OnInit {
     ]
   };
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Person) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Person, private adressBookService: AdressBookService) {
     this.rFormPerson = new FormGroup({
       firstName: new FormControl(data ? data.firstName : '', [Validators.required, Validators.maxLength(50)]),
       lastName: new FormControl(data ? data.lastName : '', [Validators.required, Validators.maxLength(50)]),
@@ -82,6 +86,8 @@ export class AdressBookFormComponent implements OnInit {
       email: new FormControl(data ? data.email : '', [Validators.required, Validators.maxLength(100), Validators.email])
     });
     this.newPerson = new Person();
+    data ? this.currentPersonId = data.id : this.currentPersonId = -1;
+    data ? this.isEdit = true : this.isEdit = false;
    }
 
   ngOnInit(): void {
@@ -89,7 +95,28 @@ export class AdressBookFormComponent implements OnInit {
 
   onSubmit(): void {
     this.newPerson = this.rFormPerson.value;
-    console.log(this.newPerson);
+    if (this.isEdit) {
+      this.newPerson.id = this.currentPersonId;
+      // tslint:disable-next-line: deprecation
+      this.adressBookService.updatePerson(this.newPerson).subscribe(
+        (response: any) => {
+          console.log(response);
+          alert('Your contact has successfuly been updated.');
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message);
+        });
+    }
+    else {
+      // tslint:disable-next-line: deprecation
+      this.adressBookService.addPerson(this.newPerson).subscribe(
+        (response: Person) => {
+          alert('Your new contact has successfuly been added.');
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      });
+    }
   }
 
   onCancel(): void {

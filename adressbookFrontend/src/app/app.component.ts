@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'adressbookFrontend';
+  countIsFetchDataFromApiTrue = 0;
+
+  onUpdateCardList(isFetchDataFromApi: boolean): void {
+    if (isFetchDataFromApi){
+      this.countIsFetchDataFromApiTrue++;
+    }
+  }
 }

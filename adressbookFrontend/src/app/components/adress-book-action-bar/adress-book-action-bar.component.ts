@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AdressBookFormComponent } from '../adress-book-form/adress-book-form.component';
 
@@ -8,8 +8,11 @@ import { AdressBookFormComponent } from '../adress-book-form/adress-book-form.co
   styleUrls: ['./adress-book-action-bar.component.scss']
 })
 export class AdressBookActionBarComponent implements OnInit {
+  @Output() isFetchDataFromApi: EventEmitter<boolean>;
 
-  constructor(public formDialog: MatDialog) { }
+  constructor(public formDialog: MatDialog) {
+    this.isFetchDataFromApi = new EventEmitter();
+   }
 
   ngOnInit(): void {
   }
@@ -19,8 +22,7 @@ export class AdressBookActionBarComponent implements OnInit {
 
     // tslint:disable-next-line: deprecation
     formDialogRef.afterClosed().subscribe( result => {
-      console.log(`Dialog result: ${result}`);
+      this.isFetchDataFromApi.emit(result);
     });
   }
-
 }
