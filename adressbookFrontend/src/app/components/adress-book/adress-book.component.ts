@@ -10,11 +10,13 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class AdressBookComponent implements OnInit, OnChanges {
   @Input() countIsFetchDataFromApiTrue: number;
+  @Input() keySearch: string;
   persons: Person[];
 
   constructor(private adressBookService: AdressBookService) {
     this.persons = [];
     this.countIsFetchDataFromApiTrue = 0;
+    this.keySearch = '';
    }
 
   ngOnInit(): void {
@@ -24,6 +26,9 @@ export class AdressBookComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.countIsFetchDataFromApiTrue && changes.countIsFetchDataFromApiTrue.currentValue) {
       this.getPersons();
+    }
+    if (changes.keySearch) {
+      this.searchPerson();
     }
   }
 
@@ -43,4 +48,17 @@ export class AdressBookComponent implements OnInit, OnChanges {
     }
   }
 
+  searchPerson(): void {
+    const results: Person[] = [];
+    this.persons.forEach( person => {
+      const fullName: string = person.firstName + ' ' + person.lastName;
+      if (fullName.toLowerCase().indexOf(this.keySearch.toLowerCase()) !== -1) {
+        results.push(person);
+      }
+    });
+    this.persons = results;
+    if (results.length === 0 || !this.keySearch) {
+      this.getPersons();
+    }
+  }
 }

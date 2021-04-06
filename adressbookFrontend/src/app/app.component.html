@@ -1,3 +1,7 @@
-<app-header (isFetchDataFromApi)="onUpdateCardList($event)"></app-header>
-<app-adress-book [countIsFetchDataFromApiTrue]="countIsFetchDataFromApiTrue"></app-adress-book>
+<app-header (isFetchDataFromApi)="onUpdateCardList($event)"
+            (keySearch)="onChangeKeySearch($event)">
+</app-header>
+<app-adress-book [countIsFetchDataFromApiTrue]="countIsFetchDataFromApiTrue"
+                 [keySearch]="keySearch">
+</app-adress-book>
 <app-footer></app-footer>

@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AdressBookFormComponent } from '../adress-book-form/adress-book-form.component';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-adress-book-action-bar',
@@ -9,9 +10,11 @@ import { AdressBookFormComponent } from '../adress-book-form/adress-book-form.co
 })
 export class AdressBookActionBarComponent implements OnInit {
   @Output() isFetchDataFromApi: EventEmitter<boolean>;
+  @Output() keySearch: EventEmitter<string>;
 
   constructor(public formDialog: MatDialog) {
     this.isFetchDataFromApi = new EventEmitter();
+    this.keySearch = new EventEmitter();
    }
 
   ngOnInit(): void {
@@ -24,5 +27,9 @@ export class AdressBookActionBarComponent implements OnInit {
     formDialogRef.afterClosed().subscribe( result => {
       this.isFetchDataFromApi.emit(result);
     });
+  }
+
+  onChangeKeySearch(key: string): void {
+    this.keySearch.emit(key);
   }
 }

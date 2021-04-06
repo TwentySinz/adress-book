@@ -7,10 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   countIsFetchDataFromApiTrue = 0;
+  keySearch = '';
 
   onUpdateCardList(isFetchDataFromApi: boolean): void {
     if (isFetchDataFromApi){
       this.countIsFetchDataFromApiTrue++;
     }
   }
+
+  onChangeKeySearch(key: string): void {
+    this.keySearch = key;
+  }
 }
+
