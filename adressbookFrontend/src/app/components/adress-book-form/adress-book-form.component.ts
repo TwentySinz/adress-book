@@ -100,7 +100,6 @@ export class AdressBookFormComponent implements OnInit {
       // tslint:disable-next-line: deprecation
       this.adressBookService.updatePerson(this.newPerson).subscribe(
         (response: any) => {
-          console.log(response);
           alert('Your contact has successfuly been updated.');
         },
         (error: HttpErrorResponse) => {

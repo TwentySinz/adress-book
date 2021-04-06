@@ -24,11 +24,17 @@ export class AdressBookService {
    }
 
    addPerson(person: Person): Observable<Person> {
-     return this.http.post<Person>(this.personURL + '/add', person, httpOptions);
+     const url: string =  this.personURL + '/add';
+     return this.http.post<Person>(url, person, httpOptions);
    }
 
    updatePerson(person: Person): Observable<any> {
-     const url = this.personURL + '/update/' + person.id;
+     const url: string = this.personURL + '/update/' + person.id;
      return this.http.put(url, person, httpOptions);
+   }
+
+   deletePerson(id: number): Observable<void> {
+     const url: string = this.personURL + '/delete/' + id;
+     return this.http.delete<void>(url);
    }
 }
