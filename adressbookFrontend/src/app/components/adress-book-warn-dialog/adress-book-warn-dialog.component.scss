@@ -1,0 +1,18 @@
+$background-color: #65c9ff;
+
+.adress-book-warn-dialog {
+
+    p {
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+    }
+
+    button {
+        background: #efefef;
+        margin-right: 0.5rem;
+    }
+
+    button:hover {
+        background: $background-color;
+    }
+}

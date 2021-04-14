@@ -14,6 +14,7 @@ import { AdressBookActionBarComponent } from './components/adress-book-action-ba
 import { AdressBookFormComponent } from './components/adress-book-form/adress-book-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { AdressBookWarnDialogComponent } from './components/adress-book-warn-dialog/adress-book-warn-dialog.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     AdressBookActionBarComponent,
-    AdressBookFormComponent
+    AdressBookFormComponent,
+    AdressBookWarnDialogComponent
   ],
   imports: [
     BrowserModule,

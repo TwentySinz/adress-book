@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Person } from '../../models/Person';
 import { MatDialog } from '@angular/material/dialog';
 import { AdressBookFormComponent } from '../adress-book-form/adress-book-form.component';
+import { AdressBookWarnDialogComponent } from '../adress-book-warn-dialog/adress-book-warn-dialog.component';
 import { AdressBookService } from '../../services/adress-book.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -34,13 +35,21 @@ export class AdressBookCardComponent implements OnInit {
   }
 
   onDeletePerson(id: number): void {
+    const formDialogRef = this.formDialog.open(AdressBookWarnDialogComponent);
     // tslint:disable-next-line: deprecation
-    this.adressBookService.deletePerson(id).subscribe(
-      (response: void) => {
-      this.isFetchDataFromApi.emit(true);
-    },
-    (error: HttpErrorResponse) => {
-      alert(error.message);
+    formDialogRef.afterClosed().subscribe( result => {
+      if (result === true){
+        // tslint:disable-next-line: deprecation
+        this.adressBookService.deletePerson(id).subscribe(
+        (response: void) => {
+          this.isFetchDataFromApi.emit(true);
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message);
+        });
+      }
     });
   }
 }
+
+
