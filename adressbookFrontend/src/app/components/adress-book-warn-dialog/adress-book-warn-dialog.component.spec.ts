@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AdressBookWarnDialogComponent } from './adress-book-warn-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 describe('AdressBookWarnDialogComponent', () => {
   let component: AdressBookWarnDialogComponent;
@@ -8,6 +9,9 @@ describe('AdressBookWarnDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        MatDialogModule
+      ],
       declarations: [ AdressBookWarnDialogComponent ]
     })
     .compileComponents();
