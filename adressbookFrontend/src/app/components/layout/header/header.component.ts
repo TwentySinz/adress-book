@@ -26,5 +26,4 @@ export class HeaderComponent implements OnInit {
   onChangeKeySearch(key: string): void {
     this.keySearch.emit(key);
   }
-
 }
